@@ -5,7 +5,8 @@
     "port": "3307",
     "database": "khai205",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "logging": false
   },
   "test": {
     "username": "root",
