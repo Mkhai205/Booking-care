@@ -1,0 +1,38 @@
+# Dependencies
+/node_modules
+/npm-debug.log
+/yarn-error.log
+/yarn-debug.log
+/yarn.lock
+/package-lock.json
+
+# IDE settings
+/.vscode
+/.idea
+/.vs
+/.DS_Store
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Logs
+/logs
+*.log
+npm-debug.log*
+
+# Build output
+/dist
+/build
+/.tmp
+
+# Coverage directory used by tools like istanbul
+/coverage
+
+# Temporary files
+*.tmp
+*.temp
+.cache
