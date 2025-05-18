@@ -1,15 +1,14 @@
 'use strict';
-import "dotenv/config"; 
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import Sequelize from 'sequelize';
-import configJson from '../config/config.json' assert { type: "json" };
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const fs = require('fs');
+const path = require('path');
+const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
+
+// Đọc file config.json thủ công
+const configPath = path.resolve(__dirname, '../config/config.json');
+const configJson = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 const config = configJson[env];
 const db = {};
 
@@ -25,8 +24,8 @@ fs
   .filter(file => {
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
-  .forEach(async file => {
-    const model = await import(path.join(__dirname, file)).then(module => module.default(sequelize, Sequelize.DataTypes));
+  .forEach(file => {
+    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
   });
 
@@ -39,4 +38,4 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-export default db;
+module.exports = db;

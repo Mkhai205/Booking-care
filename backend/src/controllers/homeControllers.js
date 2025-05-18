@@ -1,4 +1,4 @@
-import db from '../models/index.js';
+const db = require('../models');
 
 const getHomePage = async (req, res) => {
     try {
@@ -15,4 +15,4 @@ const homeController = {
     getHomePage
 };
 
-export default homeController;
+module.exports = homeController;

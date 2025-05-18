@@ -1,0 +1,19 @@
+# IDE settings
+.vscode/
+.idea/
+.vs/
+.DS_Store
+
+# Ignore environment files
+.env
+*.env
+.env.*
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.cache
